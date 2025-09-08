@@ -1837,8 +1837,10 @@
       // Show agency and previous NOC for 'antim' and 'naveenikaran'
       nocTypeEl.addEventListener("change", function () {
         const v = this.value;
-        const requiresAgency = v === "antim" || v === "naveenikaran";
-        const requiresPreviousNoc = v === "antim" || v === "naveenikaran";
+        const requiresAgency =
+          v === "antim" || v === "naveenikaran" || v === "anantim";
+        const requiresPreviousNoc =
+          v === "antim" || v === "naveenikaran" || v === "anantim";
         agencySection.classList.toggle("d-none", !requiresAgency);
         previousNocSection.classList.toggle("d-none", !requiresPreviousNoc);
         if (!requiresAgency) {
