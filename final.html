@@ -1010,33 +1010,90 @@
         <!-- Declaration -->
         <div class="card p-4 mb-4">
           <h2 class="fs-5 fw-bold section-header">घोषणा</h2>
-          <div class="mt-3 d-flex gap-3">
-            <input
-              type="checkbox"
-              id="declarationCheck"
-              class="form-check-input mt-2"
-            />
-            <div>
-              <label class="form-label">घोषणा</label>
-              <p class="text-muted small">
-                मैं एतद्वारा घोषणा करता हूँ कि प्रदान की गई जानकारी मेरे ज्ञान
-                और विश्वास के अनुसार सत्य है। मैं सभी लागू अग्नि सुरक्षा नियमों
-                और विनियमों का पालन करूंगा।
-              </p>
-              <div class="row g-3 mt-3">
-                <div class="col-md-6">
-                  <label class="form-label">नाम</label>
-                  <input
-                    type="text"
-                    id="declarantName"
-                    class="form-control"
-                    placeholder="नाम"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label">तारीख</label>
-                  <input type="date" id="declarantDate" class="form-control" />
-                </div>
+
+          <div class="mt-3">
+            <div class="form-check mb-3">
+              <input
+                type="checkbox"
+                id="previewDeclarationCheck"
+                class="form-check-input"
+              />
+              <label
+                class="form-check-label fw-semibold"
+                for="previewDeclarationCheck"
+              >
+                मैं उपरोक्त घोषणा से सहमत हूँ
+              </label>
+            </div>
+
+            <p class="text-muted small">
+              मैं यह घोषणा करता हूँ कि नीचे दिए गए सभी प्रमाण पत्र, यदि
+              नियमानुसार आवश्यक हों, तो संबंधित विभाग से प्राप्त कर तीन माह के
+              भीतर संबंधित विभाग को उपलब्ध कराए जाएँगे:
+            </p>
+
+            <!-- प्रमाण पत्रों की सूची with checkboxes -->
+            <ul class="list-unstyled">
+              <li class="form-check">
+                <input
+                  type="checkbox"
+                  id="liftSafety"
+                  class="form-check-input"
+                />
+                <label class="form-check-label" for="liftSafety">
+                  लिफ्ट सुरक्षा प्रमाण पत्र (Lift Safety Certificate)
+                </label>
+              </li>
+
+              <li class="form-check">
+                <input
+                  type="checkbox"
+                  id="electricalSafety"
+                  class="form-check-input"
+                />
+                <label class="form-check-label" for="electricalSafety">
+                  विद्युत सुरक्षा प्रमाण पत्र (Electrical Safety Certificate)
+                </label>
+              </li>
+
+              <li class="form-check">
+                <input
+                  type="checkbox"
+                  id="fireSafety"
+                  class="form-check-input"
+                />
+                <label class="form-check-label" for="fireSafety">
+                  अग्नि सुरक्षा अधिकारी प्रमाण पत्र (Fire Safety Officer
+                  Certificate)
+                </label>
+              </li>
+            </ul>
+
+            <p class="text-muted small">
+              मैं एतद्वारा घोषणा करता हूँ कि प्रदान की गई जानकारी मेरे ज्ञान और
+              विश्वास के अनुसार सत्य है। मैं सभी लागू अग्नि सुरक्षा नियमों और
+              विनियमों का पालन करूंगा।
+            </p>
+
+            <div class="row g-3 mt-3">
+              <div class="col-md-6">
+                <label class="form-label" for="previewDeclarantName">नाम</label>
+                <input
+                  type="text"
+                  id="previewDeclarantName"
+                  class="form-control"
+                  placeholder="नाम दर्ज करें"
+                />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="previewDeclarantDate"
+                  >तारीख</label
+                >
+                <input
+                  type="date"
+                  id="previewDeclarantDate"
+                  class="form-control"
+                />
               </div>
             </div>
           </div>
@@ -1614,15 +1671,37 @@
                   disabled
                 />
                 <div>
-                  <label class="form-label">घोषणा</label>
+                  <label class="form-label" for="previewDeclarationCheck"
+                    >घोषणा</label
+                  >
+                  <p class="text-muted small">
+                    मैं यह घोषणा करता हूँ कि नीचे दिए गए सभी प्रमाण पत्र, यदि
+                    नियमानुसार आवश्यक हों, तो संबंधित विभाग से प्राप्त कर तीन
+                    माह के भीतर संबंधित विभाग को उपलब्ध कराए जाएँगे:
+                  </p>
+                  <ul>
+                    <li>लिफ्ट सुरक्षा प्रमाण पत्र (Lift Safety Certificate)</li>
+                    <li>
+                      विद्युत सुरक्षा प्रमाण पत्र (Electrical Safety
+                      Certificate)
+                    </li>
+                    <li>
+                      अग्नि सुरक्षा अधिकारी प्रमाण पत्र (Fire Safety Officer
+                      Certificate)
+                    </li>
+                  </ul>
+
                   <p class="text-muted small">
                     मैं एतद्वारा घोषणा करता हूँ कि प्रदान की गई जानकारी मेरे
                     ज्ञान और विश्वास के अनुसार सत्य है। मैं सभी लागू अग्नि
                     सुरक्षा नियमों और विनियमों का पालन करूंगा।
                   </p>
+
                   <div class="row g-3 mt-3">
                     <div class="col-md-6">
-                      <label class="form-label">नाम</label>
+                      <label class="form-label" for="previewDeclarantName"
+                        >नाम</label
+                      >
                       <input
                         type="text"
                         id="previewDeclarantName"
@@ -1632,7 +1711,9 @@
                       />
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label">तारीख</label>
+                      <label class="form-label" for="previewDeclarantDate"
+                        >तारीख</label
+                      >
                       <input
                         type="date"
                         id="previewDeclarantDate"
