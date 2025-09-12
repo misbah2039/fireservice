@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>अग्नि सुरक्षा प्रमाण पत्र - आवेदन प्रपत्र</title>
+    <title>
+      Fire Safety Certificate - Application Form (अग्नि सुरक्षा प्रमाण पत्र -
+      आवेदन प्रपत्र)
+    </title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -306,13 +309,9 @@
           -webkit-print-color-adjust: exact !important;
           print-color-adjust: exact !important;
         }
-        .navbar {
-          position: static !important;
-          background: transparent !important;
-          box-shadow: none !important;
-        }
+        .navbar,
         .footer {
-          background: transparent !important;
+          display: none !important;
         }
         .card {
           border: 1.5px solid #000 !important;
@@ -344,174 +343,173 @@
   </head>
   <body>
     <!-- Unique Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <div class="container px-4">
-        <div class="navbar-brand-container">
-          <span class="navbar-brand-icon">🔥</span>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top no-print">
+      <div class="container px-3 py-2">
+        <div class="navbar-brand-container d-flex align-items-center gap-2">
+          <span class="navbar-brand-icon fs-3">🔥</span>
           <div>
-            <h1 data-lang="header-title" class="navbar-brand-title">
-              उत्तर प्रदेश अग्नि एवं आपातकालीन सेवाएँ
+            <h1
+              data-lang="header-title"
+              class="navbar-brand-title mb-0 fs-5 fw-bold"
+            >
+              UP Fire & Emergency Services (उत्तर प्रदेश अग्नि एवं आपातकालीन
+              सेवाएँ)
             </h1>
-            <p data-lang="header-subtitle" class="navbar-brand-subtitle">
-              ऑनलाइन एनओसी आवेदन पोर्टल
+            <p
+              data-lang="header-subtitle"
+              class="navbar-brand-subtitle small mb-0"
+            >
+              Online NOC Portal (ऑनलाइन एनओसी आवेदन पोर्टल)
             </p>
           </div>
         </div>
-        <div class="d-flex align-items-center gap-3">
-          <span data-lang="helpline" class="text-white-50">
-            हेल्पलाइन: 1800-XXX-XXXX
+        <div class="d-flex align-items-center gap-2">
+          <span data-lang="helpline" class="text-white-50 small">
+            Helpline: 1800-XXX-XXXX
           </span>
-          <div class="btn-group lang-toggle" role="group">
-            <button
-              id="lang-en"
-              type="button"
-              class="btn btn-light text-danger active"
-            >
-              English
-            </button>
-            <button id="lang-hi" type="button" class="btn btn-outline-light">
-              हिन्दी
-            </button>
-          </div>
           <button
             id="printBtn"
             type="button"
-            class="btn btn-outline-danger no-print"
+            class="btn btn-sm btn-outline-light no-print"
             data-lang="print"
           >
-            प्रिंट
+            Print
           </button>
         </div>
       </div>
     </nav>
 
     <main class="container px-4 py-5 mt-5 mb-5">
+      <!-- Step Navigation Buttons Top -->
+      <div
+        class="d-flex justify-content-between align-items-center mb-3 no-print"
+      >
+        <button
+          id="backToPrevStep"
+          type="button"
+          class="btn btn-outline-secondary"
+          style="visibility: hidden"
+        >
+          Previous Step (पिछला चरण)
+        </button>
+        <button id="goToNextStep" type="button" class="btn btn-danger" disabled>
+          Next Step (अगला चरण)
+        </button>
+      </div>
+
       <!-- Step 1 -->
       <div id="step1" class="card p-4 mb-4">
         <h2 class="fs-5 fw-bold section-header mb-3">
-          अनापत्ति प्रमाण पत्र के प्रकार
+          Types of No Objection Certificate (अनापत्ति प्रमाण पत्र के प्रकार)
         </h2>
         <div class="row g-3 mt-1">
           <div class="col-md-12">
-            <label class="form-label">अनापत्ति प्रमाण पत्र के प्रकार</label>
+            <label class="form-label">
+              Types of No Objection Certificate (अनापत्ति प्रमाण पत्र के प्रकार)
+            </label>
             <select id="nocType" class="form-select">
-              <option value="">चुनें</option>
-              <option value="anantim">अनंतिम</option>
-              <option value="antim">अंतिम</option>
-              <option value="naveenikaran">नवीनीकरण</option>
+              <option value="">Choose (चुनें)</option>
+              <option value="anantim">Provisional (अनंतिम)</option>
+              <option value="antim">Final (अंतिम)</option>
+              <option value="naveenikaran">Renewal (नवीनीकरण)</option>
             </select>
           </div>
         </div>
 
         <!-- Qualified Agency (conditional) -->
         <div id="agencySection" class="mt-4 d-none">
-          <h3 class="fs-6 fw-bold section-header mb-3">योग्य एजेंसी</h3>
+          <h3 class="fs-6 fw-bold section-header mb-3">
+            Qualified Agency (योग्य एजेंसी)
+          </h3>
           <div class="row g-3">
-            <div class="col-md-4">
-              <label class="form-label">एजेंसी का नाम</label>
+            <div class="col-md-6">
+              <label class="form-label">
+                Qualified Agency Name (योग्य एजेंसी का नाम)
+              </label>
               <input
                 type="text"
                 id="agencyName"
                 class="form-control"
-                placeholder="एजेंसी का नाम"
+                placeholder="Qualified Agency Name (एजेंसी का नाम)"
               />
-            </div>
-            <div class="col-md-4">
-              <label class="form-label">संपर्क नंबर</label>
-              <input
-                type="tel"
-                id="agencyContact"
-                class="form-control"
-                placeholder="मोबाइल नंबर"
-              />
-            </div>
-            <div class="col-md-4">
-              <label class="form-label">यूआईडी नंबर</label>
-              <div class="input-group">
-                <input
-                  type="text"
-                  id="agencyUid"
-                  class="form-control"
-                  placeholder="UID Number"
-                />
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="sendOtpBtn"
-                >
-                  OTP भेजें
-                </button>
-              </div>
             </div>
             <div class="col-md-6">
-              <label class="form-label">OTP सत्यापन</label>
+              <label class="form-label">UID Number (यूआईडी नंबर)</label>
+              <input
+                type="text"
+                id="agencyUid"
+                class="form-control"
+                placeholder="UID Number (यूआईडी नंबर)"
+              />
+            </div>
+          </div>
+          <div class="row g-3 mt-2">
+            <div class="col-md-12 d-flex justify-content-start">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                id="sendOtpBtn"
+              >
+                Send OTP (OTP भेजें)
+              </button>
+            </div>
+          </div>
+          <div class="row g-3 mt-3">
+            <div class="col-md-6">
+              <label class="form-label">OTP Verification (ओटीपी सत्यापन)</label>
               <div class="input-group">
                 <input
                   type="text"
                   id="otpInput"
                   class="form-control"
-                  placeholder="OTP दर्ज करें"
+                  placeholder="Enter OTP (ओटीपी दर्ज करें)"
                 />
                 <button class="btn btn-success" type="button" id="verifyOtpBtn">
-                  OTP Verify
+                  Verify OTP (OTP सत्यापित करें)
                 </button>
               </div>
               <div id="otpStatus" class="form-text"></div>
             </div>
           </div>
         </div>
-
         <!-- Previous NOC Upload (conditional) -->
         <div id="previousNocSection" class="mt-4 d-none">
-          <h3 class="fs-6 fw-bold section-header mb-3">पिछला एनओसी</h3>
+          <h3 class="fs-6 fw-bold section-header mb-3">
+            Previous NOC (पिछला एनओसी)
+          </h3>
           <div class="row g-3">
             <div class="col-md-12">
-              <label class="form-label"
-                >पिछला एनओसी अपलोड करें (अधिकतम 30MB)</label
-              >
+              <label class="form-label">
+                Upload Previous NOC (Maximum 10MB) (पिछला एनओसी अपलोड करें
+                (अधिकतम 10MB))
+              </label>
               <input
                 type="file"
                 id="previousNoc"
                 class="form-control"
                 accept=".pdf,.jpg,.jpeg,.png"
-                onchange="checkFileSize(this, 30)"
+                onchange="checkFileSize(this, 10)"
               />
               <small class="form-text text-muted">
-                30MB तक का स्पष्ट दस्तावेज़ अपलोड करें।
+                Upload a clear document up to 10MB (10MB तक का स्पष्ट दस्तावेज़
+                अपलोड करें।)
               </small>
             </div>
           </div>
-        </div>
-
-        <div class="mt-4">
-          <button id="goToStep2" type="button" class="btn btn-danger" disabled>
-            अगला चरण
-          </button>
         </div>
       </div>
 
       <!-- Step 2 -->
       <div id="step2" class="d-none">
-        <!-- Back button toolbar -->
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <button
-            id="backToStep1"
-            type="button"
-            class="btn btn-outline-secondary"
-          >
-            पिछला चरण
-          </button>
-          <button id="goToStep3" type="button" class="btn btn-danger">
-            अगला चरण
-          </button>
-        </div>
         <!-- Applicant Details (Owner / Authorized) -->
         <div class="card p-4 mb-4">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="fs-5 fw-bold section-header mb-0">
-              भवन स्वामी का विवरण
+              Building Owner Details (भवन स्वामी का विवरण)
             </h2>
-            <p class="text-secondary small mb-0">कौन आवेदन कर रहा है चुनें</p>
+            <p class="text-secondary small mb-0">
+              Select who is applying (कौन आवेदन कर रहा है चुनें)
+            </p>
           </div>
           <div class="d-flex gap-4">
             <div class="d-flex align-items-center gap-3">
@@ -523,8 +521,10 @@
                 👤
               </div>
               <div>
-                <label class="form-label fw-medium mb-0">मालिक</label>
-                <p class="text-muted small mb-0">मालिक की जानकारी भरें</p>
+                <label class="form-label fw-medium mb-0">Owner (मालिक)</label>
+                <p class="text-muted small mb-0">
+                  Fill owner information (मालिक की जानकारी भरें)
+                </p>
               </div>
             </div>
             <div class="d-flex align-items-center gap-3">
@@ -536,9 +536,12 @@
                 ✅
               </div>
               <div>
-                <label class="form-label fw-medium mb-0">अधिकृत व्यक्ति</label>
+                <label class="form-label fw-medium mb-0">
+                  Authorized Person (अधिकृत व्यक्ति)
+                </label>
                 <p class="text-muted small mb-0">
-                  अधिकृत व्यक्ति की जानकारी भरें
+                  Fill details of the authorized person (अधिकृत व्यक्ति की
+                  जानकारी भरें)
                 </p>
               </div>
             </div>
@@ -548,25 +551,25 @@
           <div id="ownerForm" class="mt-4">
             <div class="row g-3">
               <div class="col-md-6">
-                <label class="form-label">मालिक का नाम</label>
+                <label class="form-label">Owner Name (मालिक का नाम)</label>
                 <input
                   type="text"
                   id="ownerName"
                   class="form-control"
-                  placeholder="मालिक का पूरा नाम"
+                  placeholder="Full name of owner (मालिक का पूरा नाम)"
                 />
               </div>
               <div class="col-md-6">
-                <label class="form-label">संपर्क नंबर</label>
+                <label class="form-label">Contact Number (संपर्क नंबर)</label>
                 <input
                   type="tel"
                   id="ownerContact"
                   class="form-control"
-                  placeholder="मोबाइल नंबर"
+                  placeholder="Mobile Number (मोबाइल नंबर)"
                 />
               </div>
               <div class="col-md-6">
-                <label class="form-label">ईमेल</label>
+                <label class="form-label">Email (ईमेल)</label>
                 <input
                   type="email"
                   id="ownerEmail"
@@ -575,12 +578,12 @@
                 />
               </div>
               <div class="col-md-6">
-                <label class="form-label">पता</label>
+                <label class="form-label">Address (पता)</label>
                 <input
                   type="text"
                   id="ownerAddress"
                   class="form-control"
-                  placeholder="पता"
+                  placeholder="Address (पता)"
                 />
               </div>
             </div>
@@ -590,40 +593,46 @@
           <div id="authForm" class="mt-4 d-none">
             <div class="row g-3">
               <div class="col-md-6">
-                <label class="form-label">अधिकृत व्यक्ति का नाम</label>
+                <label class="form-label">
+                  Name of Authorized Person (अधिकृत व्यक्ति का नाम)
+                </label>
                 <input
                   type="text"
                   id="authName"
                   class="form-control"
-                  placeholder="अधिकृत व्यक्ति का नाम"
+                  placeholder="Name of authorized person (अधिकृत व्यक्ति का नाम)"
                 />
               </div>
               <div class="col-md-6">
-                <label class="form-label">संपर्क नंबर</label>
+                <label class="form-label">Contact Number (संपर्क नंबर)</label>
                 <input
                   type="tel"
                   id="authContact"
                   class="form-control"
-                  placeholder="मोबाइल नंबर"
+                  placeholder="Mobile Number (मोबाइल नंबर)"
                 />
               </div>
               <div class="col-md-6">
-                <label class="form-label">प्राधिकरण दस्तावेज</label>
+                <label class="form-label">
+                  Authorization Document (प्राधिकरण दस्तावेज)
+                </label>
                 <input
                   type="file"
                   id="authDoc"
                   class="form-control"
                   accept=".pdf,.jpg,.jpeg,.png"
-                  onchange="checkFileSize(this, 30)"
+                  onchange="checkFileSize(this, 5)"
                 />
               </div>
               <div class="col-md-6">
-                <label class="form-label">मालिक से संबंध</label>
+                <label class="form-label">
+                  Relation to Owner (मालिक से संबंध)
+                </label>
                 <input
                   type="text"
                   id="authRelation"
                   class="form-control"
-                  placeholder="उदा: प्रबंधक / प्रतिनिधि"
+                  placeholder="Ex: Manager/Representative (उदा: प्रबंधक / प्रतिनिधि)"
                 />
               </div>
             </div>
@@ -632,54 +641,60 @@
 
         <!-- Building Address -->
         <div class="card p-4 mb-4">
-          <h2 class="fs-5 fw-bold section-header">भवन का पता</h2>
+          <h2 class="fs-5 fw-bold section-header">
+            Building Address (भवन का पता)
+          </h2>
           <div class="row g-3 mt-3">
             <div class="col-md-4">
-              <label class="form-label">जिला</label>
+              <label class="form-label">District (जिला)</label>
               <select
                 id="district"
                 class="form-select"
                 onchange="onDistrictChange()"
               >
-                <option value="">जिला चुनें</option>
-                <option value="Lucknow">लखनऊ</option>
-                <option value="Kanpur">कानपुर</option>
+                <option value="">Select District (जिला चुनें)</option>
+                <option value="Lucknow">Lucknow (लखनऊ)</option>
+                <option value="Kanpur">Kanpur (कानपुर)</option>
               </select>
             </div>
             <div class="col-md-4">
-              <label class="form-label">तहसील</label>
+              <label class="form-label">Tehsil (तहसील)</label>
               <select id="tehsil" class="form-select">
-                <option value="">तहसील चुनें</option>
+                <option value="">Select Tehsil (तहसील चुनें)</option>
               </select>
             </div>
             <div class="col-md-4">
-              <label class="form-label">ब्लॉक</label>
+              <label class="form-label">Block (ब्लॉक)</label>
               <select id="blockSelect" class="form-select">
-                <option value="">ब्लॉक चुनें</option>
+                <option value="">Select Block (ब्लॉक चुनें)</option>
               </select>
             </div>
             <div class="col-md-4">
-              <label class="form-label">पुलिस स्टेशन</label>
+              <label class="form-label">Police Station (पुलिस स्टेशन)</label>
               <select id="police" class="form-select">
-                <option value="">पुलिस स्टेशन चुनें</option>
+                <option value="">
+                  Select Police Station (पुलिस स्टेशन चुनें)
+                </option>
               </select>
             </div>
             <div class="col-md-4">
-              <label class="form-label">गली / लैंडमार्क</label>
+              <label class="form-label"
+                >Street/Landmark (गली / लैंडमार्क)</label
+              >
               <input
                 type="text"
                 id="street"
                 class="form-control"
-                placeholder="गली या लैंडमार्क"
+                placeholder="Street/Landmark (गली या लैंडमार्क)"
               />
             </div>
             <div class="col-md-4">
-              <label class="form-label">पिन कोड</label>
+              <label class="form-label">Pin Code (पिन कोड)</label>
               <input
                 type="text"
                 id="pincode"
                 class="form-control"
-                placeholder="पिन कोड"
+                placeholder="Pin Code (पिन कोड)"
               />
             </div>
           </div>
@@ -688,50 +703,44 @@
 
       <!-- Step 3 -->
       <div id="step3" class="d-none">
-        <!-- Back and Next button toolbar -->
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <button
-            id="backToStep2"
-            type="button"
-            class="btn btn-outline-secondary"
-          >
-            पिछला चरण
-          </button>
-          <button id="goToStep4" type="button" class="btn btn-danger">
-            अगला चरण
-          </button>
-        </div>
         <!-- Map Upload -->
         <div class="card p-4 mb-4">
           <h2 data-lang="premises-map" class="fs-5 fw-bold section-header">
-            भवन परिसर का मानचित्र
+            Map of Building (भवन परिसर का मानचित्र)
           </h2>
           <div class="row g-3 mt-3">
             <div class="col-md-12">
               <label data-lang="upload-premises-map" class="form-label">
-                भवन परिसर का मानचित्र अपलोड करें (अधिकतम 30MB)
+                Upload map of building (Maximum 50MB) (भवन परिसर का मानचित्र
+                अपलोड करें (अधिकतम 50MB))
               </label>
               <input
                 type="file"
                 id="buildingMap"
                 class="form-control"
                 accept=".pdf,.jpg,.jpeg,.png"
-                onchange="checkFileSize(this, 30)"
+                onchange="checkFileSize(this, 50)"
               />
               <small data-lang="premises-map-note" class="form-text text-muted">
-                30MB तक का स्पष्ट मानचित्र अपलोड करें।
+                Upload clear maps up to 50MB (50MB तक का स्पष्ट मानचित्र अपलोड
+                करें।)
               </small>
             </div>
             <div class="col-md-12">
               <div class="alert alert-info" role="alert">
-                <strong>नोट्स (परिसर मानचित्र में शामिल होना चाहिए):</strong>
+                <strong>
+                  Notes (Maps should be uploaded as per Rule 43 (81) of Uttar
+                  Pradesh Fire and Emergency Services Rules 2024, in which the
+                  following should be shown) (नोट्स (उत्तर प्रदेश अग्निशमन एवं
+                  आपात सेवा की नियमावली 2024 के नियम 43 (81) के अनुरूप मानचित्र
+                  अपलोड किए जाये, जिसमें निम्न आवश्यक दर्शाए))
+                </strong>
                 <ul class="mb-0">
-                  <li>सड़क की चौड़ाई</li>
-                  <li>परिसर के अंदर सड़क की चौड़ाई</li>
-                  <li>भवनों की लंबाई व चौड़ाई</li>
-                  <li>भवनों के बीच का अंतर</li>
-                  <li>परिसर के मुख्य द्वार की चौड़ाई व ऊँचाई</li>
-                  <li>परिसर तक पहुँचने वाली सड़क की चौड़ाई</li>
+                  <li>Key Plan *</li>
+                  <li>Site Plan *</li>
+                  <li>All Floor-Wise Plan *</li>
+                  <li>Elevation Plan</li>
+                  <li>Section Plan *</li>
                 </ul>
               </div>
             </div>
@@ -741,34 +750,35 @@
         <!-- Building Details -->
         <div class="card p-4 mb-4">
           <h2 data-lang="building-details" class="fs-5 fw-bold section-header">
-            भवन विवरण
+            Building Details (भवन विवरण)
           </h2>
           <div class="row g-3 mt-3">
             <div class="col-md-6">
               <label data-lang="building-popular-name" class="form-label">
-                भवन का प्रचलित नाम
+                Popular Name of the Building (भवन का प्रचलित नाम)
               </label>
               <input
                 type="text"
                 id="buildingPopularName"
                 class="form-control"
-                placeholder="सामान्यतः जिस नाम से जाना जाता है"
+                placeholder="Commonly known as (सामान्यतः जिस नाम से जाना जाता है)"
               />
             </div>
             <div class="col-md-6">
               <label data-lang="building-name-noc" class="form-label">
-                एनओसी में उल्लेखित होने वाला भवन का नाम
+                Name of the Building to be Mentioned in the NOC (एनओसी में
+                उल्लेखित होने वाला भवन का नाम)
               </label>
               <input
                 type="text"
                 id="buildingNameNoc"
                 class="form-control"
-                placeholder="एनओसी हेतु नाम"
+                placeholder="Name for NOC (एनओसी हेतु नाम)"
               />
             </div>
             <div class="col-md-6">
               <label data-lang="num-buildings" class="form-label">
-                भवनों की संख्या
+                No. of Buildings in Premises (परिसर में भवनों की संख्या)
               </label>
               <div class="d-flex gap-2">
                 <input
@@ -781,18 +791,18 @@
                 <button
                   type="button"
                   data-lang="create-table"
-                  class="btn btn-primary"
+                  class="btn btn-primary no-print"
                   onclick="createBuildingsTable()"
                 >
-                  टेबल बनाएँ
+                  Create Table (टेबल बनाएँ)
                 </button>
                 <button
                   type="button"
                   data-lang="add-row"
-                  class="btn btn-success"
+                  class="btn btn-success no-print"
                   onclick="addBuildingRow()"
                 >
-                  पंक्ति जोड़ें
+                  Add Row (पंक्ति जोड़ें)
                 </button>
               </div>
             </div>
@@ -803,110 +813,88 @@
             <table class="table table-bordered table-hover" id="buildingsTable">
               <thead class="table-light">
                 <tr>
-                  <th data-lang="sr-no">क्रम संख्या</th>
-                  <th data-lang="purpose">भवन उपयोग का उद्देश्य</th>
-                  <th data-lang="height-m">ऊंचाई (मीटर)</th>
-                  <th data-lang="no-floors">मंजिलों की संख्या</th>
-                  <th data-lang="building-map">भवन का नक्शा</th>
-                  <th data-lang="action">हटाएँ</th>
+                  <th data-lang="sr-no">Sr. No. (क्रम संख्या)</th>
+                  <th data-lang="purpose">
+                    Type of Building Use (भवन उपयोग का प्रकार)
+                  </th>
+                  <th data-lang="height-m">Height (Meters) (ऊंचाई (मीटर))</th>
+                  <th data-lang="no-floors">
+                    Number of Floors (मंजिलों की संख्या)
+                  </th>
+                  <th data-lang="action">Delete (हटाएँ)</th>
                 </tr>
               </thead>
               <tbody id="buildingsTbody"></tbody>
             </table>
-          </div>
-
-          <!-- Notes area -->
-          <div class="mt-3">
-            <div class="alert alert-info mb-3" role="alert">
-              <strong>
-                <label data-lang="notes" class="form-label">नोट्स</label>
-                मानचित्र में यह अवश्य दर्शाएँ:
-              </strong>
-              <ul class="mb-0">
-                <li>तलों का क्षेत्रफल (मंचित्र में)</li>
-                <li>निकास द्वार की संख्या और चौड़ाई</li>
-                <li>Refuse Area (यदि लागू हो)</li>
-                <li>Fire Tower (यदि लागू हो)</li>
-                <li>Fire Lift (यदि लागू हो)</li>
-                <li>Balcony (यदि लागू हो)</li>
-                <li>अग्निरोधक दरवाज़े</li>
-                <li>वातानुकूलित प्रणाली (यदि लागू हो)</li>
-                <li>Pump room का स्थान (यदि लागू हो)</li>
-                <li>Storage water tank (यदि लागू हो)</li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
 
       <!-- Step 4: Industry Details -->
       <div id="step4" class="d-none">
-        <!-- Back and Next button toolbar -->
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <button
-            id="backToStep3"
-            type="button"
-            class="btn btn-outline-secondary"
-          >
-            पिछला चरण
-          </button>
-          <button id="goToStep5" type="button" class="btn btn-danger">
-            अगला चरण
-          </button>
-        </div>
         <!-- Industry section -->
         <div class="card p-4 mb-4">
-          <h2 class="fs-5 fw-bold section-header">उद्योग के मामले में विवरण</h2>
+          <h2 class="fs-5 fw-bold section-header">
+            Industry Case Details (उद्योग के मामले में विवरण)
+          </h2>
           <div class="row g-3 mt-3">
             <div class="col-md-6">
-              <label class="form-label">कच्चा माल</label>
+              <label class="form-label">Raw Material (कच्चा माल)</label>
               <input
                 type="text"
                 id="rawMaterial"
                 class="form-control"
-                placeholder="कच्चा माल"
+                placeholder="Raw Material (कच्चा माल)"
               />
             </div>
             <div class="col-md-6">
-              <label class="form-label">तैयार माल</label>
+              <label class="form-label">Finished Goods (तैयार माल)</label>
               <input
                 type="text"
                 id="finishedMaterial"
                 class="form-control"
-                placeholder="तैयार माल"
-              />
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">मशीनों के नाम</label>
-              <input
-                type="text"
-                id="machineNames"
-                class="form-control"
-                placeholder="मशीनों के नाम"
-              />
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">मशीनें कितने दबाव तक हैं</label>
-              <input
-                type="text"
-                id="machinePressure"
-                class="form-control"
-                placeholder="दबाव स्तर"
-              />
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">कितने तापमान पर कार्य होना है</label>
-              <input
-                type="text"
-                id="workTemperature"
-                class="form-control"
-                placeholder="तापमान"
+                placeholder="Finished Goods (तैयार माल)"
               />
             </div>
             <div class="col-md-6">
               <label class="form-label"
-                >ज्वलनशील गैस इस्तेमाल होती है अथवा नहीं</label
+                >Names of Machines (मशीनों के नाम)</label
               >
+              <input
+                type="text"
+                id="machineNames"
+                class="form-control"
+                placeholder="Names of Machines (मशीनों के नाम)"
+              />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">
+                Up to What Pressure is the Machine (मशीनें कितने दबाव तक हैं)
+              </label>
+              <input
+                type="text"
+                id="machinePressure"
+                class="form-control"
+                placeholder="Pressure Level (दबाव स्तर)"
+              />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">
+                At What Temperature the Work Has to be Done (कितने तापमान पर
+                कार्य होना है)
+              </label>
+              <input
+                type="text"
+                id="workTemperature"
+                class="form-control"
+                placeholder="Temperature (तापमान)"
+              />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">
+                Is Flammable Gas Used or Not? (ज्वलनशील गैस इस्तेमाल होती है
+                अथवा नहीं)
+              </label>
               <div>
                 <input
                   type="radio"
@@ -914,18 +902,20 @@
                   name="flammableGas"
                   value="yes"
                 />
-                <label for="flammableGasYes">हाँ</label>
+                <label for="flammableGasYes">Yes (हाँ)</label>
                 <input
                   type="radio"
                   id="flammableGasNo"
                   name="flammableGas"
                   value="no"
                 />
-                <label for="flammableGasNo">नहीं</label>
+                <label for="flammableGasNo">No (नहीं)</label>
               </div>
             </div>
             <div class="col-md-6">
-              <label class="form-label">बॉयलर लगाया है अथवा नहीं</label>
+              <label class="form-label">
+                Whether Boiler is Installed or Not (बॉयलर लगाया है अथवा नहीं)
+              </label>
               <div>
                 <input
                   type="radio"
@@ -934,7 +924,7 @@
                   value="yes"
                   onclick="toggleBoilerFuel()"
                 />
-                <label for="boilerYes">हाँ</label>
+                <label for="boilerYes">Yes (हाँ)</label>
                 <input
                   type="radio"
                   id="boilerNo"
@@ -942,35 +932,37 @@
                   value="no"
                   onclick="toggleBoilerFuel()"
                 />
-                <label for="boilerNo">नहीं</label>
+                <label for="boilerNo">No (नहीं)</label>
               </div>
             </div>
             <div class="col-md-6 d-none" id="boilerFuelSection">
-              <label class="form-label"
-                >बॉयलर चलाने के किस पदार्थ का इस्तेमाल होता है</label
-              >
+              <label class="form-label">
+                Which Substance is Used to Run Boiler (बॉयलर चलाने के लिए किस
+                पदार्थ का इस्तेमाल होता है)
+              </label>
               <input
                 type="text"
                 id="boilerFuel"
                 class="form-control"
-                placeholder="ईंधन का नाम"
+                placeholder="Fuel Name (ईंधन का नाम)"
               />
             </div>
             <div class="col-md-6">
-              <label class="form-label"
-                >एसिड का इस्तेमाल होता है अथवा नहीं</label
-              >
+              <label class="form-label">
+                Is Acid Used or Not? (एसिड का इस्तेमाल होता है अथवा नहीं)
+              </label>
               <div>
                 <input type="radio" id="acidYes" name="acid" value="yes" />
-                <label for="acidYes">हाँ</label>
+                <label for="acidYes">Yes (हाँ)</label>
                 <input type="radio" id="acidNo" name="acid" value="no" />
-                <label for="acidNo">नहीं</label>
+                <label for="acidNo">No (नहीं)</label>
               </div>
             </div>
             <div class="col-md-6">
-              <label class="form-label"
-                >क्लोरीन, अमोनिया का इस्तेमाल होता है अथवा नहीं</label
-              >
+              <label class="form-label">
+                Is Chlorine and Ammonia Used or Not? (क्लोरीन, अमोनिया का
+                इस्तेमाल होता है अथवा नहीं)
+              </label>
               <div>
                 <input
                   type="radio"
@@ -978,14 +970,14 @@
                   name="chemical"
                   value="yes"
                 />
-                <label for="chemicalYes">हाँ</label>
+                <label for="chemicalYes">Yes (हाँ)</label>
                 <input
                   type="radio"
                   id="chemicalNo"
                   name="chemical"
                   value="no"
                 />
-                <label for="chemicalNo">नहीं</label>
+                <label for="chemicalNo">No (नहीं)</label>
               </div>
             </div>
           </div>
@@ -994,106 +986,51 @@
 
       <!-- Step 5: Declaration -->
       <div id="step5" class="d-none">
-        <!-- Back and Next button toolbar -->
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <button
-            id="backToStep4"
-            type="button"
-            class="btn btn-outline-secondary"
-          >
-            पिछला चरण
-          </button>
-          <button id="goToStep6" type="button" class="btn btn-danger">
-            अगला चरण
-          </button>
-        </div>
         <!-- Declaration -->
         <div class="card p-4 mb-4">
-          <h2 class="fs-5 fw-bold section-header">घोषणा</h2>
-
-          <div class="mt-3">
-            <div class="form-check mb-3">
-              <input
-                type="checkbox"
-                id="previewDeclarationCheck"
-                class="form-check-input"
-              />
-              <label
-                class="form-check-label fw-semibold"
-                for="previewDeclarationCheck"
-              >
-                मैं उपरोक्त घोषणा से सहमत हूँ
-              </label>
-            </div>
-
-            <p class="text-muted small">
-              मैं यह घोषणा करता हूँ कि नीचे दिए गए सभी प्रमाण पत्र, यदि
-              नियमानुसार आवश्यक हों, तो संबंधित विभाग से प्राप्त कर तीन माह के
-              भीतर संबंधित विभाग को उपलब्ध कराए जाएँगे:
-            </p>
-
-            <!-- प्रमाण पत्रों की सूची with checkboxes -->
-            <ul class="list-unstyled">
-              <li class="form-check">
-                <input
-                  type="checkbox"
-                  id="liftSafety"
-                  class="form-check-input"
-                />
-                <label class="form-check-label" for="liftSafety">
-                  लिफ्ट सुरक्षा प्रमाण पत्र (Lift Safety Certificate)
-                </label>
-              </li>
-
-              <li class="form-check">
-                <input
-                  type="checkbox"
-                  id="electricalSafety"
-                  class="form-check-input"
-                />
-                <label class="form-check-label" for="electricalSafety">
-                  विद्युत सुरक्षा प्रमाण पत्र (Electrical Safety Certificate)
-                </label>
-              </li>
-
-              <li class="form-check">
-                <input
-                  type="checkbox"
-                  id="fireSafety"
-                  class="form-check-input"
-                />
-                <label class="form-check-label" for="fireSafety">
-                  अग्नि सुरक्षा अधिकारी प्रमाण पत्र (Fire Safety Officer
-                  Certificate)
-                </label>
-              </li>
-            </ul>
-
-            <p class="text-muted small">
-              मैं एतद्वारा घोषणा करता हूँ कि प्रदान की गई जानकारी मेरे ज्ञान और
-              विश्वास के अनुसार सत्य है। मैं सभी लागू अग्नि सुरक्षा नियमों और
-              विनियमों का पालन करूंगा।
-            </p>
-
-            <div class="row g-3 mt-3">
-              <div class="col-md-6">
-                <label class="form-label" for="previewDeclarantName">नाम</label>
-                <input
-                  type="text"
-                  id="previewDeclarantName"
-                  class="form-control"
-                  placeholder="नाम दर्ज करें"
-                />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" for="previewDeclarantDate"
-                  >तारीख</label
-                >
-                <input
-                  type="date"
-                  id="previewDeclarantDate"
-                  class="form-control"
-                />
+          <h2 class="fs-5 fw-bold section-header">Declaration (घोषणा)</h2>
+          <div class="mt-3 d-flex gap-3">
+            <input
+              type="checkbox"
+              id="declarationCheck"
+              class="form-check-input mt-2"
+            />
+            <div>
+              <label class="form-label">Declaration (घोषणा)</label>
+              <p class="text-muted small">
+                I hereby declare that the information provided is true to the
+                best of my knowledge and belief. I will follow all applicable
+                fire safety rules and regulations. (मैं एतद्वारा घोषणा करता हूँ
+                कि प्रदान की गई जानकारी मेरे ज्ञान और विश्वास के अनुसार सत्य है।
+                मैं सभी लागू अग्नि सुरक्षा नियमों और विनियमों का पालन करूंगा।)
+                <br />
+                I declare that all the certificates given below, if required as
+                per rules, will be obtained from the concerned department and
+                made available to the fire department within three months. (मैं
+                यह घोषणा करता हूँ कि नीचे दिए गए सभी प्रमाण पत्र, यदि नियमानुसार
+                आवश्यक हों, तो संबंधित विभाग से प्राप्त कर तीन माह के भीतर
+                अग्निशमन विभाग को उपलब्ध कराए जाएँगे।)
+                <br />
+                1. Lift Safety Certificate (लिफ्ट सुरक्षा प्रमाण पत्र) <br />
+                2. Electrical Safety Certificate (विद्युत सुरक्षा प्रमाण पत्र)
+                <br />
+                3. Fire Safety Officer Certificate (अग्नि सुरक्षा अधिकारी प्रमाण
+                पत्र)
+              </p>
+              <div class="row g-3 mt-3">
+                <div class="col-md-6">
+                  <label class="form-label">Name (नाम)</label>
+                  <input
+                    type="text"
+                    id="declarantName"
+                    class="form-control"
+                    placeholder="Name (नाम)"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Date (तारीख)</label>
+                  <input type="date" id="declarantDate" class="form-control" />
+                </div>
               </div>
             </div>
           </div>
@@ -1102,83 +1039,71 @@
 
       <!-- Step 6: Preview -->
       <div id="step6" class="d-none">
-        <!-- Back and Submit button toolbar -->
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <button
-            id="backToStep5"
-            type="button"
-            class="btn btn-outline-secondary"
-          >
-            पिछला चरण
-          </button>
-          <button id="submitForm" type="button" class="btn btn-danger">
-            जमा करें
-          </button>
-        </div>
         <!-- Preview -->
         <div class="card p-4 mb-4">
-          <h2 class="fs-5 fw-bold section-header">फॉर्म पूर्वावलोकन</h2>
-          <div id="previewContent" class="mt-3">
+          <h2 class="fs-5 fw-bold section-header">
+            Form Preview (फॉर्म पूर्वावलोकन)
+          </h2>
+          <div id="previewContent">
             <!-- Step 1: NOC Type -->
             <div class="card p-4 mb-4">
               <h2 class="fs-5 fw-bold section-header mb-3">
-                अनापत्ति प्रमाण पत्र के प्रकार
+                Types of No Objection Certificate (अनापत्ति प्रमाण पत्र के
+                प्रकार)
               </h2>
               <div class="row g-3 mt-1">
                 <div class="col-md-12">
-                  <label class="form-label"
-                    >अनापत्ति प्रमाण पत्र के प्रकार</label
-                  >
+                  <label class="form-label">
+                    Types of No Objection Certificate (अनापत्ति प्रमाण पत्र के
+                    प्रकार)
+                  </label>
                   <select id="previewNocType" class="form-select" disabled>
-                    <option value="">चुनें</option>
-                    <option value="anantim">अनंतिम</option>
-                    <option value="antim">अंतिम</option>
-                    <option value="naveenikaran">नवीनीकरण</option>
+                    <option value="">Choose (चुनें)</option>
+                    <option value="anantim">Provisional (अनंतिम)</option>
+                    <option value="antim">Final (अंतिम)</option>
+                    <option value="naveenikaran">Renewal (नवीनीकरण)</option>
                   </select>
                 </div>
               </div>
               <div id="previewAgencySection" class="mt-4 d-none">
-                <h3 class="fs-6 fw-bold section-header mb-3">योग्य एजेंसी</h3>
+                <h3 class="fs-6 fw-bold section-header mb-3">
+                  Qualified Agency (योग्य एजेंसी)
+                </h3>
                 <div class="row g-3">
-                  <div class="col-md-4">
-                    <label class="form-label">एजेंसी का नाम</label>
+                  <div class="col-md-6">
+                    <label class="form-label"
+                      >Qualified Agency Name (एजेंसी का नाम)</label
+                    >
                     <input
                       type="text"
                       id="previewAgencyName"
                       class="form-control"
-                      placeholder="एजेंसी का नाम"
+                      placeholder="Qualified Agency Name (एजेंसी का नाम)"
                       disabled
                     />
                   </div>
-                  <div class="col-md-4">
-                    <label class="form-label">संपर्क नंबर</label>
-                    <input
-                      type="tel"
-                      id="previewAgencyContact"
-                      class="form-control"
-                      placeholder="मोबाइल नंबर"
-                      disabled
-                    />
-                  </div>
-                  <div class="col-md-4">
-                    <label class="form-label">यूआईडी नंबर</label>
+                  <div class="col-md-6">
+                    <label class="form-label">UID Number (यूआईडी नंबर)</label>
                     <input
                       type="text"
                       id="previewAgencyUid"
                       class="form-control"
-                      placeholder="UID Number"
+                      placeholder="UID Number (यूआईडी नंबर)"
                       disabled
                     />
                   </div>
                 </div>
               </div>
               <div id="previewPreviousNocSection" class="mt-4 d-none">
-                <h3 class="fs-6 fw-bold section-header mb-3">पिछला एनओसी</h3>
+                <h3 class="fs-6 fw-bold section-header mb-3">
+                  Previous NOC (पिछला एनओसी)
+                </h3>
                 <div class="row g-3">
                   <div class="col-md-12">
-                    <label class="form-label"
-                      >पिछला एनओसी अपलोड करें (अधिकतम 30MB)</label
-                    >
+                    <label class="form-label">
+                      Upload Previous NOC (Maximum 10MB) (पिछला एनओसी अपलोड करें
+                      (अधिकतम 10MB))
+                    </label>
                     <input
                       type="text"
                       id="previewPreviousNoc"
@@ -1186,7 +1111,8 @@
                       disabled
                     />
                     <small class="form-text text-muted">
-                      30MB तक का स्पष्ट दस्तावेज़ अपलोड करें।
+                      Upload a clear document up to 10MB (10MB तक का स्पष्ट
+                      दस्तावेज़ अपलोड करें।)
                     </small>
                   </div>
                 </div>
@@ -1199,10 +1125,10 @@
                 class="d-flex justify-content-between align-items-center mb-3"
               >
                 <h2 class="fs-5 fw-bold section-header mb-0">
-                  भवन स्वामी का विवरण
+                  Building Owner Details (भवन स्वामी का विवरण)
                 </h2>
                 <p class="text-secondary small mb-0">
-                  कौन आवेदन कर रहा है चुनें
+                  Select who is applying (कौन आवेदन कर रहा है चुनें)
                 </p>
               </div>
               <div class="d-flex gap-4">
@@ -1214,8 +1140,12 @@
                     👤
                   </div>
                   <div>
-                    <label class="form-label fw-medium mb-0">मालिक</label>
-                    <p class="text-muted small mb-0">मालिक की जानकारी</p>
+                    <label class="form-label fw-medium mb-0"
+                      >Owner (मालिक)</label
+                    >
+                    <p class="text-muted small mb-0">
+                      Owner Information (मालिक की जानकारी)
+                    </p>
                   </div>
                 </div>
                 <div class="d-flex align-items-center gap-3">
@@ -1223,11 +1153,11 @@
                     ✅
                   </div>
                   <div>
-                    <label class="form-label fw-medium mb-0"
-                      >अधिकृत व्यक्ति</label
-                    >
+                    <label class="form-label fw-medium mb-0">
+                      Authorized Person (अधिकृत व्यक्ति)
+                    </label>
                     <p class="text-muted small mb-0">
-                      अधिकृत व्यक्ति की जानकारी
+                      Authorized Person Information (अधिकृत व्यक्ति की जानकारी)
                     </p>
                   </div>
                 </div>
@@ -1235,27 +1165,29 @@
               <div id="previewOwnerForm" class="mt-4">
                 <div class="row g-3">
                   <div class="col-md-6">
-                    <label class="form-label">मालिक का नाम</label>
+                    <label class="form-label">Owner Name (मालिक का नाम)</label>
                     <input
                       type="text"
                       id="previewOwnerName"
                       class="form-control"
-                      placeholder="मालिक का पूरा नाम"
+                      placeholder="Full name of owner (मालिक का पूरा नाम)"
                       disabled
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="form-label">संपर्क नंबर</label>
+                    <label class="form-label"
+                      >Contact Number (संपर्क नंबर)</label
+                    >
                     <input
                       type="tel"
                       id="previewOwnerContact"
                       class="form-control"
-                      placeholder="मोबाइल नंबर"
+                      placeholder="Mobile Number (मोबाइल नंबर)"
                       disabled
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="form-label">ईमेल</label>
+                    <label class="form-label">Email (ईमेल)</label>
                     <input
                       type="email"
                       id="previewOwnerEmail"
@@ -1265,12 +1197,12 @@
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="form-label">पता</label>
+                    <label class="form-label">Address (पता)</label>
                     <input
                       type="text"
                       id="previewOwnerAddress"
                       class="form-control"
-                      placeholder="पता"
+                      placeholder="Address (पता)"
                       disabled
                     />
                   </div>
@@ -1279,27 +1211,33 @@
               <div id="previewAuthForm" class="mt-4 d-none">
                 <div class="row g-3">
                   <div class="col-md-6">
-                    <label class="form-label">अधिकृत व्यक्ति का नाम</label>
+                    <label class="form-label">
+                      Name of Authorized Person (अधिकृत व्यक्ति का नाम)
+                    </label>
                     <input
                       type="text"
                       id="previewAuthName"
                       class="form-control"
-                      placeholder="अधिकृत व्यक्ति का नाम"
+                      placeholder="Name of authorized person (अधिकृत व्यक्ति का नाम)"
                       disabled
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="form-label">संपर्क नंबर</label>
+                    <label class="form-label"
+                      >Contact Number (संपर्क नंबर)</label
+                    >
                     <input
                       type="tel"
                       id="previewAuthContact"
                       class="form-control"
-                      placeholder="मोबाइल नंबर"
+                      placeholder="Mobile Number (मोबाइल नंबर)"
                       disabled
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="form-label">प्राधिकरण दस्तावेज</label>
+                    <label class="form-label">
+                      Authorization Document (प्राधिकरण दस्तावेज)
+                    </label>
                     <input
                       type="text"
                       id="previewAuthDoc"
@@ -1308,12 +1246,14 @@
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="form-label">मालिक से संबंध</label>
+                    <label class="form-label">
+                      Relation to Owner (मालिक से संबंध)
+                    </label>
                     <input
                       type="text"
                       id="previewAuthRelation"
                       class="form-control"
-                      placeholder="उदा: प्रबंधक / प्रतिनिधि"
+                      placeholder="Ex: Manager/Representative (उदा: प्रबंधक / प्रतिनिधि)"
                       disabled
                     />
                   </div>
@@ -1321,51 +1261,59 @@
               </div>
             </div>
             <div class="card p-4 mb-4">
-              <h2 class="fs-5 fw-bold section-header">भवन का पता</h2>
+              <h2 class="fs-5 fw-bold section-header">
+                Building Address (भवन का पता)
+              </h2>
               <div class="row g-3 mt-3">
                 <div class="col-md-4">
-                  <label class="form-label">जिला</label>
+                  <label class="form-label">District (जिला)</label>
                   <select id="previewDistrict" class="form-select" disabled>
-                    <option value="">जिला चुनें</option>
-                    <option value="Lucknow">लखनऊ</option>
-                    <option value="Kanpur">कानपुर</option>
+                    <option value="">Select District (जिला चुनें)</option>
+                    <option value="Lucknow">Lucknow (लखनऊ)</option>
+                    <option value="Kanpur">Kanpur (कानपुर)</option>
                   </select>
                 </div>
                 <div class="col-md-4">
-                  <label class="form-label">तहसील</label>
+                  <label class="form-label">Tehsil (तहसील)</label>
                   <select id="previewTehsil" class="form-select" disabled>
-                    <option value="">तहसील चुनें</option>
+                    <option value="">Select Tehsil (तहसील चुनें)</option>
                   </select>
                 </div>
                 <div class="col-md-4">
-                  <label class="form-label">ब्लॉक</label>
+                  <label class="form-label">Block (ब्लॉक)</label>
                   <select id="previewBlockSelect" class="form-select" disabled>
-                    <option value="">ब्लॉक चुनें</option>
+                    <option value="">Select Block (ब्लॉक चुनें)</option>
                   </select>
                 </div>
                 <div class="col-md-4">
-                  <label class="form-label">पुलिस स्टेशन</label>
+                  <label class="form-label"
+                    >Police Station (पुलिस स्टेशन)</label
+                  >
                   <select id="previewPolice" class="form-select" disabled>
-                    <option value="">पुलिस स्टेशन चुनें</option>
+                    <option value="">
+                      Select Police Station (पुलिस स्टेशन चुनें)
+                    </option>
                   </select>
                 </div>
                 <div class="col-md-4">
-                  <label class="form-label">गली / लैंडमार्क</label>
+                  <label class="form-label"
+                    >Street/Landmark (गली / लैंडमार्क)</label
+                  >
                   <input
                     type="text"
                     id="previewStreet"
                     class="form-control"
-                    placeholder="गली या लैंडमार्क"
+                    placeholder="Street/Landmark (गली या लैंडमार्क)"
                     disabled
                   />
                 </div>
                 <div class="col-md-4">
-                  <label class="form-label">पिन कोड</label>
+                  <label class="form-label">Pin Code (पिन कोड)</label>
                   <input
                     type="text"
                     id="previewPincode"
                     class="form-control"
-                    placeholder="पिन कोड"
+                    placeholder="Pin Code (पिन कोड)"
                     disabled
                   />
                 </div>
@@ -1375,12 +1323,13 @@
             <!-- Step 3: Map and Building Details -->
             <div class="card p-4 mb-4">
               <h2 data-lang="premises-map" class="fs-5 fw-bold section-header">
-                भवन परिसर का मानचित्र
+                Map of Building (भवन परिसर का मानचित्र)
               </h2>
               <div class="row g-3 mt-3">
                 <div class="col-md-12">
                   <label data-lang="upload-premises-map" class="form-label">
-                    भवन परिसर का मानचित्र अपलोड करें (अधिकतम 30MB)
+                    Upload map of building (Maximum 50MB) (भवन परिसर का मानचित्र
+                    अपलोड करें (अधिकतम 50MB))
                   </label>
                   <input
                     type="text"
@@ -1392,21 +1341,26 @@
                     data-lang="premises-map-note"
                     class="form-text text-muted"
                   >
-                    30MB तक का स्पष्ट मानचित्र अपलोड करें।
+                    Upload clear maps up to 50MB (50MB तक का स्पष्ट मानचित्र
+                    अपलोड करें।)
                   </small>
                 </div>
                 <div class="col-md-12">
                   <div class="alert alert-info" role="alert">
-                    <strong
-                      >नोट्स (परिसर मानचित्र में शामिल होना चाहिए):</strong
-                    >
+                    <strong>
+                      Notes (Maps should be uploaded as per Rule 43 (81) of
+                      Uttar Pradesh Fire and Emergency Services Rules 2024, in
+                      which the following should be shown) (नोट्स (उत्तर प्रदेश
+                      अग्निशमन एवं आपात सेवा की नियमावली 2024 के नियम 43 (81) के
+                      अनुरूप मानचित्र अपलोड किए जाये, जिसमें निम्न आवश्यक
+                      दर्शाए))
+                    </strong>
                     <ul class="mb-0">
-                      <li>सड़क की चौड़ाई</li>
-                      <li>परिसर के अंदर सड़क की चौड़ाई</li>
-                      <li>भवनों की लंबाई व चौड़ाई</li>
-                      <li>भवनों के बीच का अंतर</li>
-                      <li>परिसर के मुख्य द्वार की चौड़ाई व ऊँचाई</li>
-                      <li>परिसर तक पहुँचने वाली सड़क की चौड़ाई</li>
+                      <li>Key Plan *</li>
+                      <li>Site Plan *</li>
+                      <li>All Floor-Wise Plan *</li>
+                      <li>Elevation Plan</li>
+                      <li>Section Plan *</li>
                     </ul>
                   </div>
                 </div>
@@ -1417,36 +1371,37 @@
                 data-lang="building-details"
                 class="fs-5 fw-bold section-header"
               >
-                भवन विवरण
+                Building Details (भवन विवरण)
               </h2>
               <div class="row g-3 mt-3">
                 <div class="col-md-6">
                   <label data-lang="building-popular-name" class="form-label">
-                    भवन का प्रचलित नाम
+                    Popular Name of the Building (भवन का प्रचलित नाम)
                   </label>
                   <input
                     type="text"
                     id="previewBuildingPopularName"
                     class="form-control"
-                    placeholder="सामान्यतः जिस नाम से जाना जाता है"
+                    placeholder="Commonly known as (सामान्यतः जिस नाम से जाना जाता है)"
                     disabled
                   />
                 </div>
                 <div class="col-md-6">
                   <label data-lang="building-name-noc" class="form-label">
-                    एनओसी में उल्लेखित होने वाला भवन का नाम
+                    Name of the Building to be Mentioned in the NOC (एनओसी में
+                    उल्लेखित होने वाला भवन का नाम)
                   </label>
                   <input
                     type="text"
                     id="previewBuildingNameNoc"
                     class="form-control"
-                    placeholder="एनओसी हेतु नाम"
+                    placeholder="Name for NOC (एनओसी हेतु नाम)"
                     disabled
                   />
                 </div>
                 <div class="col-md-6">
                   <label data-lang="num-buildings" class="form-label">
-                    भवनों की संख्या
+                    No. of Buildings in Premises (परिसर में भवनों की संख्या)
                   </label>
                   <input
                     type="number"
@@ -1465,100 +1420,92 @@
                 >
                   <thead class="table-light">
                     <tr>
-                      <th data-lang="sr-no">क्रम संख्या</th>
-                      <th data-lang="purpose">भवन उपयोग का उद्देश्य</th>
-                      <th data-lang="height-m">ऊंचाई (मीटर)</th>
-                      <th data-lang="no-floors">मंजिलों की संख्या</th>
-                      <th data-lang="building-map">भवन का नक्शा</th>
+                      <th data-lang="sr-no">Sr. No. (क्रम संख्या)</th>
+                      <th data-lang="purpose">
+                        Type of Building Use (भवन उपयोग का उद्देश्य)
+                      </th>
+                      <th data-lang="height-m">
+                        Height (Meters) (ऊंचाई (मीटर))
+                      </th>
+                      <th data-lang="no-floors">
+                        Number of Floors (मंजिलों की संख्या)
+                      </th>
                     </tr>
                   </thead>
                   <tbody id="previewBuildingsTbody"></tbody>
                 </table>
-              </div>
-              <div class="mt-3">
-                <div class="alert alert-info mb-3" role="alert">
-                  <strong>
-                    <label data-lang="notes" class="form-label">नोट्स</label>
-                    मानचित्र में यह अवश्य दर्शाएँ:
-                  </strong>
-                  <ul class="mb-0">
-                    <li>तलों का क्षेत्रफल (मंचित्र में)</li>
-                    <li>निकास द्वार की संख्या और चौड़ाई</li>
-                    <li>Refuse Area (यदि लागू हो)</li>
-                    <li>Fire Tower (यदि लागू हो)</li>
-                    <li>Fire Lift (यदि लागू हो)</li>
-                    <li>Balcony (यदि लागू हो)</li>
-                    <li>अग्निरोधक दरवाज़े</li>
-                    <li>वातानुकूलित प्रणाली (यदि लागू हो)</li>
-                    <li>Pump room का स्थान (यदि लागू हो)</li>
-                    <li>Storage water tank (यदि लागू हो)</li>
-                  </ul>
-                </div>
               </div>
             </div>
 
             <!-- Step 4: Industry Details -->
             <div class="card p-4 mb-4">
               <h2 class="fs-5 fw-bold section-header">
-                उद्योग के मामले में विवरण
+                Industry Case Details (उद्योग के मामले में विवरण)
               </h2>
               <div class="row g-3 mt-3">
                 <div class="col-md-6">
-                  <label class="form-label">कच्चा माल</label>
+                  <label class="form-label">Raw Material (कच्चा माल)</label>
                   <input
                     type="text"
                     id="previewRawMaterial"
                     class="form-control"
-                    placeholder="कच्चा माल"
+                    placeholder="Raw Material (कच्चा माल)"
                     disabled
                   />
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label">तैयार माल</label>
+                  <label class="form-label">Finished Goods (तैयार माल)</label>
                   <input
                     type="text"
                     id="previewFinishedMaterial"
                     class="form-control"
-                    placeholder="तैयार माल"
+                    placeholder="Finished Goods (तैयार माल)"
                     disabled
                   />
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label">मशीनों के नाम</label>
+                  <label class="form-label"
+                    >Names of Machines (मशीनों के नाम)</label
+                  >
                   <input
                     type="text"
                     id="previewMachineNames"
                     class="form-control"
-                    placeholder="मशीनों के नाम"
+                    placeholder="Names of Machines (मशीनों के नाम)"
                     disabled
                   />
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label">मशीनें कितने दबाव तक हैं</label>
+                  <label class="form-label">
+                    Up to What Pressure is the Machine (मशीनें कितने दबाव तक
+                    हैं)
+                  </label>
                   <input
                     type="text"
                     id="previewMachinePressure"
                     class="form-control"
-                    placeholder="दबाव स्तर"
+                    placeholder="Pressure Level (दबाव स्तर)"
                     disabled
                   />
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label"
-                    >कितने तापमान पर कार्य होना है</label
-                  >
+                  <label class="form-label">
+                    At What Temperature the Work Has to be Done (कितने तापमान पर
+                    कार्य होना है)
+                  </label>
                   <input
                     type="text"
                     id="previewWorkTemperature"
                     class="form-control"
-                    placeholder="तापमान"
+                    placeholder="Temperature (तापमान)"
                     disabled
                   />
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label"
-                    >ज्वलनशील गैस इस्तेमाल होती है अथवा नहीं</label
-                  >
+                  <label class="form-label">
+                    Is Flammable Gas Used or Not? (ज्वलनशील गैस इस्तेमाल होती है
+                    अथवा नहीं)
+                  </label>
                   <div>
                     <input
                       type="radio"
@@ -1567,7 +1514,7 @@
                       value="yes"
                       disabled
                     />
-                    <label for="previewFlammableGasYes">हाँ</label>
+                    <label for="previewFlammableGasYes">Yes (हाँ)</label>
                     <input
                       type="radio"
                       id="previewFlammableGasNo"
@@ -1575,11 +1522,14 @@
                       value="no"
                       disabled
                     />
-                    <label for="previewFlammableGasNo">नहीं</label>
+                    <label for="previewFlammableGasNo">No (नहीं)</label>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label">बॉयलर लगाया है अथवा नहीं</label>
+                  <label class="form-label">
+                    Whether Boiler is Installed or Not (बॉयलर लगाया है अथवा
+                    नहीं)
+                  </label>
                   <div>
                     <input
                       type="radio"
@@ -1588,7 +1538,7 @@
                       value="yes"
                       disabled
                     />
-                    <label for="previewBoilerYes">हाँ</label>
+                    <label for="previewBoilerYes">Yes (हाँ)</label>
                     <input
                       type="radio"
                       id="previewBoilerNo"
@@ -1596,25 +1546,26 @@
                       value="no"
                       disabled
                     />
-                    <label for="previewBoilerNo">नहीं</label>
+                    <label for="previewBoilerNo">No (नहीं)</label>
                   </div>
                 </div>
                 <div class="col-md-6 d-none" id="previewBoilerFuelSection">
-                  <label class="form-label"
-                    >बॉयलर चलाने के किस पदार्थ का इस्तेमाल होता है</label
-                  >
+                  <label class="form-label">
+                    Which Substance is Used to Run Boiler (बॉयलर चलाने के लिए
+                    किस पदार्थ का इस्तेमाल होता है)
+                  </label>
                   <input
                     type="text"
                     id="previewBoilerFuel"
                     class="form-control"
-                    placeholder="ईंधन का नाम"
+                    placeholder="Fuel Name (ईंधन का नाम)"
                     disabled
                   />
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label"
-                    >एसिड का इस्तेमाल होता है अथवा नहीं</label
-                  >
+                  <label class="form-label">
+                    Is Acid Used or Not? (एसिड का इस्तेमाल होता है अथवा नहीं)
+                  </label>
                   <div>
                     <input
                       type="radio"
@@ -1623,7 +1574,7 @@
                       value="yes"
                       disabled
                     />
-                    <label for="previewAcidYes">हाँ</label>
+                    <label for="previewAcidYes">Yes (हाँ)</label>
                     <input
                       type="radio"
                       id="previewAcidNo"
@@ -1631,13 +1582,14 @@
                       value="no"
                       disabled
                     />
-                    <label for="previewAcidNo">नहीं</label>
+                    <label for="previewAcidNo">No (नहीं)</label>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label"
-                    >क्लोरीन, अमोनिया का इस्तेमाल होता है अथवा नहीं</label
-                  >
+                  <label class="form-label">
+                    Is Chlorine and Ammonia Used or Not? (क्लोरीन, अमोनिया का
+                    इस्तेमाल होता है अथवा नहीं)
+                  </label>
                   <div>
                     <input
                       type="radio"
@@ -1646,7 +1598,7 @@
                       value="yes"
                       disabled
                     />
-                    <label for="previewChemicalYes">हाँ</label>
+                    <label for="previewChemicalYes">Yes (हाँ)</label>
                     <input
                       type="radio"
                       id="previewChemicalNo"
@@ -1654,7 +1606,7 @@
                       value="no"
                       disabled
                     />
-                    <label for="previewChemicalNo">नहीं</label>
+                    <label for="previewChemicalNo">No (नहीं)</label>
                   </div>
                 </div>
               </div>
@@ -1662,7 +1614,7 @@
 
             <!-- Step 5: Declaration -->
             <div class="card p-4 mb-4">
-              <h2 class="fs-5 fw-bold section-header">घोषणा</h2>
+              <h2 class="fs-5 fw-bold section-header">Declaration (घोषणा)</h2>
               <div class="mt-3 d-flex gap-3">
                 <input
                   type="checkbox"
@@ -1671,49 +1623,42 @@
                   disabled
                 />
                 <div>
-                  <label class="form-label" for="previewDeclarationCheck"
-                    >घोषणा</label
-                  >
+                  <label class="form-label">Declaration (घोषणा)</label>
                   <p class="text-muted small">
-                    मैं यह घोषणा करता हूँ कि नीचे दिए गए सभी प्रमाण पत्र, यदि
-                    नियमानुसार आवश्यक हों, तो संबंधित विभाग से प्राप्त कर तीन
-                    माह के भीतर संबंधित विभाग को उपलब्ध कराए जाएँगे:
+                    I hereby declare that the information provided is true to
+                    the best of my knowledge and belief. I will follow all
+                    applicable fire safety rules and regulations. (मैं एतद्वारा
+                    घोषणा करता हूँ कि प्रदान की गई जानकारी मेरे ज्ञान और विश्वास
+                    के अनुसार सत्य है। मैं सभी लागू अग्नि सुरक्षा नियमों और
+                    विनियमों का पालन करूंगा।)
+                    <br />
+                    I declare that all the certificates given below, if required
+                    as per rules, will be obtained from the concerned department
+                    and made available to the fire department within three
+                    months. (मैं यह घोषणा करता हूँ कि नीचे दिए गए सभी प्रमाण
+                    पत्र, यदि नियमानुसार आवश्यक हों, तो संबंधित विभाग से प्राप्त
+                    कर तीन माह के भीतर अग्निशमन विभाग को उपलब्ध कराए जाएँगे।)
+                    <br />
+                    1. Lift Safety Certificate (लिफ्ट सुरक्षा प्रमाण पत्र)
+                    <br />
+                    2. Electrical Safety Certificate (विद्युत सुरक्षा प्रमाण
+                    पत्र) <br />
+                    3. Fire Safety Officer Certificate (अग्नि सुरक्षा अधिकारी
+                    प्रमाण पत्र)
                   </p>
-                  <ul>
-                    <li>लिफ्ट सुरक्षा प्रमाण पत्र (Lift Safety Certificate)</li>
-                    <li>
-                      विद्युत सुरक्षा प्रमाण पत्र (Electrical Safety
-                      Certificate)
-                    </li>
-                    <li>
-                      अग्नि सुरक्षा अधिकारी प्रमाण पत्र (Fire Safety Officer
-                      Certificate)
-                    </li>
-                  </ul>
-
-                  <p class="text-muted small">
-                    मैं एतद्वारा घोषणा करता हूँ कि प्रदान की गई जानकारी मेरे
-                    ज्ञान और विश्वास के अनुसार सत्य है। मैं सभी लागू अग्नि
-                    सुरक्षा नियमों और विनियमों का पालन करूंगा।
-                  </p>
-
                   <div class="row g-3 mt-3">
                     <div class="col-md-6">
-                      <label class="form-label" for="previewDeclarantName"
-                        >नाम</label
-                      >
+                      <label class="form-label">Name (नाम)</label>
                       <input
                         type="text"
                         id="previewDeclarantName"
                         class="form-control"
-                        placeholder="नाम"
+                        placeholder="Name (नाम)"
                         disabled
                       />
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label" for="previewDeclarantDate"
-                        >तारीख</label
-                      >
+                      <label class="form-label">Date (तारीख)</label>
                       <input
                         type="date"
                         id="previewDeclarantDate"
@@ -1728,21 +1673,50 @@
           </div>
         </div>
       </div>
+
+      <!-- Step Navigation Buttons Bottom -->
+      <div
+        class="d-flex justify-content-between align-items-center mt-3 no-print"
+      >
+        <button
+          id="backToPrevStepBottom"
+          type="button"
+          class="btn btn-outline-secondary"
+          style="visibility: hidden"
+        >
+          Previous Step (पिछला चरण)
+        </button>
+        <button
+          id="goToNextStepBottom"
+          type="button"
+          class="btn btn-danger"
+          disabled
+        >
+          Next Step (अगला चरण)
+        </button>
+      </div>
     </main>
 
     <!-- Unique Footer -->
-    <footer class="footer">
+    <footer class="footer no-print">
       <div class="container footer-content">
         <div class="footer-logo">
           <span class="footer-logo-icon">🔥</span>
           <span class="footer-logo-text">
-            उत्तर प्रदेश अग्नि एवं आपातकालीन सेवाएँ
+            Uttar Pradesh Fire and Emergency Services (उत्तर प्रदेश अग्नि एवं
+            आपातकालीन सेवाएँ)
           </span>
         </div>
         <div class="footer-links">
-          <a href="#" data-lang="footer-links-contact">हमसे संपर्क करें</a>
-          <a href="#" data-lang="footer-links-privacy">गोपनीयता नीति</a>
-          <a href="#" data-lang="footer-links-terms">सेवा की शर्तें</a>
+          <a href="#" data-lang="footer-links-contact"
+            >Contact Us (हमसे संपर्क करें)</a
+          >
+          <a href="#" data-lang="footer-links-privacy"
+            >Privacy Policy (गोपनीयता नीति)</a
+          >
+          <a href="#" data-lang="footer-links-terms"
+            >Terms of Service (सेवा की शर्तें)</a
+          >
         </div>
         <div class="footer-social">
           <a href="#" title="Twitter">𝕏</a>
@@ -1750,8 +1724,9 @@
           <a href="#" title="Email">📧</a>
         </div>
         <div class="footer-copyright" data-lang="footer">
-          © 2025 उत्तर प्रदेश अग्नि एवं आपातकालीन सेवाएँ — सर्वाधिकार सुरक्षित ·
-          आंतरिक उपयोग के लिए डिज़ाइन किया गया
+          © 2025 Uttar Pradesh Fire and Emergency Services — All Rights Reserved
+          · Designed for Internal Use (© 2025 उत्तर प्रदेश अग्नि एवं आपातकालीन
+          सेवाएँ — सर्वाधिकार सुरक्षित · आंतरिक उपयोग के लिए डिज़ाइन किया गया)
         </div>
       </div>
     </footer>
@@ -1784,85 +1759,89 @@
       const state = {
         otpSent: false,
         otpVerified: false,
+        currentStep: 1,
       };
 
-      const translations = {
-        hi: {
-          "header-title": "उत्तर प्रदेश अग्नि एवं आपातकालीन सेवाएँ",
-          "header-subtitle": "ऑनलाइन एनओसी आवेदन पोर्टल",
-          helpline: "हेल्पलाइन: 1800-XXX-XXXX",
-          print: "प्रिंट",
-          "footer-links-contact": "हमसे संपर्क करें",
-          "footer-links-privacy": "गोपनीयता नीति",
-          "footer-links-terms": "सेवा की शर्तें",
-          footer:
-            "© 2025 उत्तर प्रदेश अग्नि एवं आपातकालीन सेवाएँ — सर्वाधिकार सुरक्षित · आंतरिक उपयोग के लिए डिज़ाइन किया गया",
-          "premises-map": "भवन परिसर का मानचित्र",
-          "upload-premises-map":
-            "भवन परिसर का मानचित्र अपलोड करें (अधिकतम 30MB)",
-          "premises-map-note": "30MB तक का स्पष्ट मानचित्र अपलोड करें।",
-          "building-details": "भवन विवरण",
-          "building-popular-name": "भवन का प्रचलित नाम",
-          "building-popular-name-placeholder":
-            "सामान्यतः जिस नाम से जाना जाता है",
-          "building-name-noc": "एनओसी में उल्लेखित होने वाला भवन का नाम",
-          "building-name-noc-placeholder": "एनओसी हेतु नाम",
-          "num-buildings": "भवनों की संख्या",
-          "create-table": "टेबल बनाएँ",
-          "add-row": "पंक्ति जोड़ें",
-          "sr-no": "क्रम संख्या",
-          purpose: "भवन उपयोग का उद्देश्य",
-          "purpose-placeholder": "उदाहरण: आवासीय, दुकान, कार्यालय",
-          "height-m": "ऊंचाई (मीटर)",
-          "no-floors": "मंजिलों की संख्या",
-          "building-map": "भवन का नक्शा",
-          action: "हटाएँ",
-          notes: "नोट्स",
-          "num-buildings-error":
-            "कृपया भवनों की मान्य संख्या (>=1) दर्ज करें ताकि तालिका बन सके।",
-          "buildings-error":
-            "कृपया सभी भवनों के लिए उद्देश्य, ऊंचाई और मंजिलों की संख्या भरें।",
-          "map-size-error":
-            "चयनित फ़ाइल 30 MB से अधिक है। कृपया छोटी फ़ाइल चुनें।",
-        },
+      // File size check function
+      window.checkFileSize = function (input, maxMb) {
+        const file = input.files[0];
+        if (!file) return;
+        const maxBytes = maxMb * 1024 * 1024;
+        if (file.size > maxBytes) {
+          alert(`File size exceeds ${maxMb}MB. Please upload a smaller file.`);
+          input.value = "";
+        }
       };
 
-      let currentLang = "hi";
+      // Navigation logic
+      function updateNavigation() {
+        const prevBtn = document.getElementById("backToPrevStep");
+        const nextBtn = document.getElementById("goToNextStep");
+        const prevBtnBottom = document.getElementById("backToPrevStepBottom");
+        const nextBtnBottom = document.getElementById("goToNextStepBottom");
 
+        prevBtn.style.visibility =
+          state.currentStep === 1 ? "hidden" : "visible";
+        prevBtnBottom.style.visibility =
+          state.currentStep === 1 ? "hidden" : "visible";
+
+        nextBtn.disabled =
+          state.currentStep === 1 &&
+          !state.otpVerified &&
+          !document
+            .getElementById("agencySection")
+            .classList.contains("d-none");
+        nextBtnBottom.disabled = nextBtn.disabled;
+
+        if (state.currentStep === 6) {
+          nextBtn.textContent = "Submit (जमा करें)";
+          nextBtnBottom.textContent = "Submit (जमा करें)";
+        } else {
+          nextBtn.textContent = "Next Step (अगला चरण)";
+          nextBtnBottom.textContent = "Next Step (अगला चरण)";
+        }
+      }
+
+      function goToStep(step) {
+        for (let i = 1; i <= 6; i++) {
+          document.getElementById(`step${i}`).classList.add("d-none");
+        }
+        document.getElementById(`step${step}`).classList.remove("d-none");
+        state.currentStep = step;
+        updateNavigation();
+        if (step === 6) showPreview();
+      }
+
+      // Step 1 logic
       const nocTypeEl = document.getElementById("nocType");
       const agencySection = document.getElementById("agencySection");
       const previousNocSection = document.getElementById("previousNocSection");
-      const goToStep2Btn = document.getElementById("goToStep2");
 
-      // Show agency and previous NOC for 'antim' and 'naveenikaran'
       nocTypeEl.addEventListener("change", function () {
         const v = this.value;
-        const requiresAgency =
-          v === "antim" || v === "naveenikaran" || v === "anantim";
-        const requiresPreviousNoc =
-          v === "antim" || v === "naveenikaran" || v === "anantim";
+        const requiresAgency = v === "antim" || v === "naveenikaran";
+        const requiresPreviousNoc = v === "antim" || v === "naveenikaran";
         agencySection.classList.toggle("d-none", !requiresAgency);
         previousNocSection.classList.toggle("d-none", !requiresPreviousNoc);
         if (!requiresAgency) {
           state.otpVerified = true;
-          goToStep2Btn.disabled = v === "";
         } else {
           state.otpVerified = false;
-          goToStep2Btn.disabled = true;
         }
+        updateNavigation();
       });
 
       document
         .getElementById("sendOtpBtn")
         .addEventListener("click", function () {
-          const contact = document.getElementById("agencyContact").value.trim();
-          if (!contact) {
-            alert("कृपया संपर्क नंबर दर्ज करें");
+          const uid = document.getElementById("agencyUid").value.trim();
+          if (!uid) {
+            alert("Please enter UID Number (कृपया यूआईडी नंबर दर्ज करें)");
             return;
           }
           state.otpSent = true;
           document.getElementById("otpStatus").textContent =
-            "OTP भेज दिया गया है";
+            "OTP sent. Please enter 123456. (OTP भेज दिया गया है। कृपया 123456 दर्ज करें।)";
         });
 
       document
@@ -1870,102 +1849,70 @@
         .addEventListener("click", function () {
           const otp = document.getElementById("otpInput").value.trim();
           if (!state.otpSent) {
-            alert("पहले OTP भेजें");
+            alert("Please send OTP first (पहले OTP भेजें)");
             return;
           }
           if (!otp) {
-            alert("कृपया OTP दर्ज करें");
+            alert("Please enter OTP (कृपया OTP दर्ज करें)");
             return;
           }
           if (otp === "123456") {
             state.otpVerified = true;
-            document.getElementById("otpStatus").textContent = "OTP सत्यापित";
-            goToStep2Btn.disabled = false;
+            document.getElementById("otpStatus").textContent =
+              "OTP Verified (OTP सत्यापित)";
           } else {
             state.otpVerified = false;
-            document.getElementById("otpStatus").textContent = "गलत OTP";
-            goToStep2Btn.disabled = true;
+            document.getElementById("otpStatus").textContent =
+              "Invalid OTP (गलत OTP)";
+          }
+          updateNavigation();
+        });
+
+      // Navigation button listeners
+      document
+        .getElementById("goToNextStep")
+        .addEventListener("click", function () {
+          if (
+            state.currentStep === 1 &&
+            !state.otpVerified &&
+            !agencySection.classList.contains("d-none")
+          ) {
+            alert(
+              "Please verify OTP if required (कृपया आवश्यक होने पर OTP सत्यापित करें)"
+            );
+            return;
+          }
+          if (state.currentStep < 6) {
+            goToStep(state.currentStep + 1);
+          } else {
+            alert("Form submitted! (फॉर्म जमा हो गया!)");
           }
         });
 
-      goToStep2Btn.addEventListener("click", function () {
-        if (!state.otpVerified) {
-          alert("कृपया आवश्यक होने पर OTP सत्यापित करें");
-          return;
-        }
-        document.getElementById("step1").classList.add("d-none");
-        document.getElementById("step2").classList.remove("d-none");
-      });
-
       document
-        .getElementById("goToStep3")
+        .getElementById("goToNextStepBottom")
         .addEventListener("click", function () {
-          document.getElementById("step2").classList.add("d-none");
-          document.getElementById("step3").classList.remove("d-none");
+          document.getElementById("goToNextStep").click();
         });
 
       document
-        .getElementById("goToStep4")
+        .getElementById("backToPrevStep")
         .addEventListener("click", function () {
-          document.getElementById("step3").classList.add("d-none");
-          document.getElementById("step4").classList.remove("d-none");
+          if (state.currentStep > 1) {
+            goToStep(state.currentStep - 1);
+          }
         });
 
       document
-        .getElementById("goToStep5")
+        .getElementById("backToPrevStepBottom")
         .addEventListener("click", function () {
-          document.getElementById("step4").classList.add("d-none");
-          document.getElementById("step5").classList.remove("d-none");
-        });
-
-      document
-        .getElementById("goToStep6")
-        .addEventListener("click", function () {
-          showPreview();
-          document.getElementById("step5").classList.add("d-none");
-          document.getElementById("step6").classList.remove("d-none");
-        });
-
-      document
-        .getElementById("backToStep1")
-        .addEventListener("click", function () {
-          document.getElementById("step2").classList.add("d-none");
-          document.getElementById("step1").classList.remove("d-none");
-        });
-
-      document
-        .getElementById("backToStep2")
-        .addEventListener("click", function () {
-          document.getElementById("step3").classList.add("d-none");
-          document.getElementById("step2").classList.remove("d-none");
-        });
-
-      document
-        .getElementById("backToStep3")
-        .addEventListener("click", function () {
-          document.getElementById("step4").classList.add("d-none");
-          document.getElementById("step3").classList.remove("d-none");
-        });
-
-      document
-        .getElementById("backToStep4")
-        .addEventListener("click", function () {
-          document.getElementById("step5").classList.add("d-none");
-          document.getElementById("step4").classList.remove("d-none");
-        });
-
-      document
-        .getElementById("backToStep5")
-        .addEventListener("click", function () {
-          document.getElementById("step6").classList.add("d-none");
-          document.getElementById("step5").classList.remove("d-none");
+          document.getElementById("backToPrevStep").click();
         });
 
       // Print button
-      const printBtn = document.getElementById("printBtn");
-      if (printBtn) {
-        printBtn.addEventListener("click", () => window.print());
-      }
+      document
+        .getElementById("printBtn")
+        .addEventListener("click", () => window.print());
 
       // Applicant type toggle
       function clearSectionInputs(sectionElement) {
@@ -2011,9 +1958,12 @@
         const blockSelect = document.getElementById("blockSelect");
         const police = document.getElementById("police");
 
-        tehsil.innerHTML = '<option value="">तहसील चुनें</option>';
-        blockSelect.innerHTML = '<option value="">ब्लॉक चुनें</option>';
-        police.innerHTML = '<option value="">पुलिस स्टेशन चुनें</option>';
+        tehsil.innerHTML =
+          '<option value="">Select Tehsil (तहसील चुनें)</option>';
+        blockSelect.innerHTML =
+          '<option value="">Select Block (ब्लॉक चुनें)</option>';
+        police.innerHTML =
+          '<option value="">Select Police Station (पुलिस स्टेशन चुनें)</option>';
 
         if (!district || !districtData[district]) return;
 
@@ -2037,7 +1987,9 @@
         const n = parseInt(numInput.value || 0, 10);
 
         if (isNaN(n) || n <= 0) {
-          alert(translations[currentLang]["num-buildings-error"]);
+          alert(
+            "Please enter a valid number of buildings (कृपया भवनों की संख्या दर्ज करें)"
+          );
           numInput.focus();
           return;
         }
@@ -2056,19 +2008,16 @@
         const row = document.createElement("tr");
         row.innerHTML = `
           <td class="text-center"></td>
-          <td><input type="text" name="bPurpose[]" class="form-control" placeholder="${
-            translations[currentLang]["purpose-placeholder"]
-          }" value="${data.purpose || ""}" required></td>
+          <td><input type="text" name="bPurpose[]" class="form-control" placeholder="Purpose (उद्देश्य)" value="${
+            data.purpose || ""
+          }" required></td>
           <td><input type="number" step="0.01" name="bHeight[]" class="form-control" value="${
             data.height || ""
           }" required></td>
           <td><input type="number" step="1" min="0" name="bFloors[]" class="form-control" value="${
             data.floors || ""
           }" required></td>
-          <td><input type="file" name="bMap[]" class="form-control" accept=".pdf,.jpg,.jpeg,.png"></td>
-          <td class="text-center"><button type="button" class="btn btn-danger btn-sm btn-remove-row" onclick="removeBuildingRow(this)">${
-            translations[currentLang].action
-          }</button></td>
+          <td class="text-center"><button type="button" class="btn btn-danger btn-sm btn-remove-row no-print" onclick="removeBuildingRow(this)">Delete (हटाएँ)</button></td>
         `;
         tbody.appendChild(row);
         renumberBuildings();
@@ -2092,17 +2041,6 @@
         });
       }
 
-      function checkMapSize(input, maxMb) {
-        const file = input.files[0];
-        if (!file) return;
-
-        const maxBytes = maxMb * 1024 * 1024;
-        if (file.size > maxBytes) {
-          alert(translations[currentLang]["map-size-error"]);
-          input.value = "";
-        }
-      }
-
       // Toggle boiler fuel input
       function toggleBoilerFuel() {
         const yes = document.getElementById("boilerYes").checked;
@@ -2114,170 +2052,173 @@
 
       // Show preview function
       function showPreview() {
-        const preview = document.getElementById("previewContent");
-        preview.innerHTML = "";
+        // Step 1: NOC Type
+        const nocType = document.getElementById("nocType");
+        const previewNocType = document.getElementById("previewNocType");
+        previewNocType.value = nocType.value;
 
-        let html =
-          "<h3>चरण 1: NOC प्रकार</h3><p>" +
-          document.getElementById("nocType").value +
-          "</p>";
-
-        if (
-          !document.getElementById("agencySection").classList.contains("d-none")
-        ) {
-          html +=
-            "<h3>एजेंसी विवरण</h3><p>नाम: " +
-            document.getElementById("agencyName").value +
-            "</p><p>संपर्क: " +
-            document.getElementById("agencyContact").value +
-            "</p><p>UID: " +
-            document.getElementById("agencyUid").value +
-            "</p>";
-        }
-
-        html += "<h3>चरण 2: आवेदक विवरण</h3>";
-
-        if (
-          document.getElementById("ownerToggle").classList.contains("selected")
-        ) {
-          html +=
-            "<p>मालिक का नाम: " +
-            document.getElementById("ownerName").value +
-            "</p><p>संपर्क: " +
-            document.getElementById("ownerContact").value +
-            "</p><p>ईमेल: " +
-            document.getElementById("ownerEmail").value +
-            "</p><p>पता: " +
-            document.getElementById("ownerAddress").value +
-            "</p>";
+        // Agency Section
+        const agencyMain = document.getElementById("agencySection");
+        const previewAgency = document.getElementById("previewAgencySection");
+        if (!agencyMain.classList.contains("d-none")) {
+          previewAgency.classList.remove("d-none");
+          document.getElementById("previewAgencyName").value =
+            document.getElementById("agencyName").value;
+          document.getElementById("previewAgencyMobile").value =
+            document.getElementById("agencyMobile").value;
+          document.getElementById("previewAgencyUid").value =
+            document.getElementById("agencyUid").value;
         } else {
-          html +=
-            "<p>अधिकृत व्यक्ति का नाम: " +
-            document.getElementById("authName").value +
-            "</p><p>संपर्क: " +
-            document.getElementById("authContact").value +
-            "</p><p>संबंध: " +
-            document.getElementById("authRelation").value +
-            "</p><p>दस्तावेज: " +
-            (document.getElementById("authDoc").files[0]
-              ? document.getElementById("authDoc").files[0].name
-              : "कोई नहीं") +
-            "</p>";
+          previewAgency.classList.add("d-none");
         }
 
-        html +=
-          "<h3>भवन का पता</h3><p>जिला: " +
-          document.getElementById("district").value +
-          "</p><p>तहसील: " +
-          document.getElementById("tehsil").value +
-          "</p><p>ब्लॉक: " +
-          document.getElementById("blockSelect").value +
-          "</p><p>पुलिस स्टेशन: " +
-          document.getElementById("police").value +
-          "</p><p>गली / लैंडमार्क: " +
-          document.getElementById("street").value +
-          "</p><p>पिन कोड: " +
-          document.getElementById("pincode").value +
-          "</p>";
+        // Previous NOC
+        const prevMain = document.getElementById("previousNocSection");
+        const previewPrev = document.getElementById(
+          "previewPreviousNocSection"
+        );
+        if (!prevMain.classList.contains("d-none")) {
+          previewPrev.classList.remove("d-none");
+          const file = document.getElementById("previousNoc").files[0];
+          document.getElementById("previewPreviousNoc").value = file
+            ? file.name
+            : "";
+        } else {
+          previewPrev.classList.add("d-none");
+        }
 
-        html +=
-          "<h3>चरण 3: मानचित्र</h3><p>फ़ाइल: " +
-          (document.getElementById("buildingMap").files[0]
-            ? document.getElementById("buildingMap").files[0].name
-            : "कोई नहीं") +
-          "</p>";
+        // Step 2: Applicant
+        const ownerToggle = document.getElementById("ownerToggle");
+        const previewOwnerToggle =
+          document.getElementById("previewOwnerToggle");
+        const previewAuthToggle = document.getElementById("previewAuthToggle");
+        const previewOwnerForm = document.getElementById("previewOwnerForm");
+        const previewAuthForm = document.getElementById("previewAuthForm");
+        if (ownerToggle.classList.contains("selected")) {
+          previewOwnerToggle.classList.add("selected");
+          previewAuthToggle.classList.remove("selected");
+          previewOwnerForm.classList.remove("d-none");
+          previewAuthForm.classList.add("d-none");
+          document.getElementById("previewOwnerName").value =
+            document.getElementById("ownerName").value;
+          document.getElementById("previewOwnerContact").value =
+            document.getElementById("ownerContact").value;
+          document.getElementById("previewOwnerEmail").value =
+            document.getElementById("ownerEmail").value;
+          document.getElementById("previewOwnerAddress").value =
+            document.getElementById("ownerAddress").value;
+        } else {
+          previewAuthToggle.classList.add("selected");
+          previewOwnerToggle.classList.remove("selected");
+          previewAuthForm.classList.remove("d-none");
+          previewOwnerForm.classList.add("d-none");
+          document.getElementById("previewAuthName").value =
+            document.getElementById("authName").value;
+          document.getElementById("previewAuthContact").value =
+            document.getElementById("authContact").value;
+          const authFile = document.getElementById("authDoc").files[0];
+          document.getElementById("previewAuthDoc").value = authFile
+            ? authFile.name
+            : "";
+          document.getElementById("previewAuthRelation").value =
+            document.getElementById("authRelation").value;
+        }
 
-        html +=
-          "<h3>भवन विवरण</h3><p>प्रचलित नाम: " +
-          document.getElementById("buildingPopularName").value +
-          "</p><p>एनओसी नाम: " +
-          document.getElementById("buildingNameNoc").value +
-          "</p>";
+        // Address
+        document.getElementById("previewDistrict").value =
+          document.getElementById("district").value;
+        document.getElementById("previewTehsil").value =
+          document.getElementById("tehsil").value;
+        document.getElementById("previewBlockSelect").value =
+          document.getElementById("blockSelect").value;
+        document.getElementById("previewPolice").value =
+          document.getElementById("police").value;
+        document.getElementById("previewStreet").value =
+          document.getElementById("street").value;
+        document.getElementById("previewPincode").value =
+          document.getElementById("pincode").value;
 
-        html +=
-          '<table class="table"><thead><tr><th>क्रम</th><th>उद्देश्य</th><th>ऊंचाई</th><th>मंजिलें</th><th>मानचित्र</th></tr></thead><tbody>';
+        // Step 3: Map
+        const mapFile = document.getElementById("buildingMap").files[0];
+        document.getElementById("previewBuildingMap").value = mapFile
+          ? mapFile.name
+          : "";
 
-        document.querySelectorAll("#buildingsTbody tr").forEach((row) => {
-          const cells = row.cells;
-          html +=
-            "<tr><td>" +
-            cells[0].textContent +
-            "</td><td>" +
-            row.querySelector('input[name="bPurpose[]"]').value +
-            "</td><td>" +
-            row.querySelector('input[name="bHeight[]"]').value +
-            "</td><td>" +
-            row.querySelector('input[name="bFloors[]"]').value +
-            "</td><td>" +
-            (row.querySelector('input[name="bMap[]"]').files[0]
-              ? row.querySelector('input[name="bMap[]"]').files[0].name
-              : "कोई नहीं") +
-            "</td></tr>";
+        // Building details
+        document.getElementById("previewBuildingPopularName").value =
+          document.getElementById("buildingPopularName").value;
+        document.getElementById("previewBuildingNameNoc").value =
+          document.getElementById("buildingNameNoc").value;
+        document.getElementById("previewNumBuildings").value =
+          document.getElementById("numBuildings").value;
+
+        // Buildings table
+        const mainTbody = document.getElementById("buildingsTbody");
+        const previewTbody = document.getElementById("previewBuildingsTbody");
+        previewTbody.innerHTML = "";
+        let srNo = 1;
+        mainTbody.querySelectorAll("tr").forEach((tr) => {
+          const purposeInput = tr.querySelector('input[name="bPurpose[]"]');
+          const heightInput = tr.querySelector('input[name="bHeight[]"]');
+          const floorsInput = tr.querySelector('input[name="bFloors[]"]');
+          if (purposeInput && heightInput && floorsInput) {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${srNo++}</td>
+              <td>${purposeInput.value}</td>
+              <td>${heightInput.value}</td>
+              <td>${floorsInput.value}</td>
+            `;
+            previewTbody.appendChild(row);
+          }
         });
 
-        html += "</tbody></table>";
+        // Step 4: Industry
+        document.getElementById("previewRawMaterial").value =
+          document.getElementById("rawMaterial").value;
+        document.getElementById("previewFinishedMaterial").value =
+          document.getElementById("finishedMaterial").value;
+        document.getElementById("previewMachineNames").value =
+          document.getElementById("machineNames").value;
+        document.getElementById("previewMachinePressure").value =
+          document.getElementById("machinePressure").value;
+        document.getElementById("previewWorkTemperature").value =
+          document.getElementById("workTemperature").value;
 
-        html +=
-          "<h3>चरण 4: उद्योग विवरण</h3><p>कच्चा माल: " +
-          document.getElementById("rawMaterial").value +
-          "</p><p>तैयार माल: " +
-          document.getElementById("finishedMaterial").value +
-          "</p><p>मशीनों के नाम: " +
-          document.getElementById("machineNames").value +
-          "</p><p>दबाव: " +
-          document.getElementById("machinePressure").value +
-          "</p><p>तापमान: " +
-          document.getElementById("workTemperature").value +
-          "</p><p>ज्वलनशील गैस: " +
-          (document.querySelector('input[name="flammableGas"]:checked')
-            ? document.querySelector('input[name="flammableGas"]:checked')
-                .value === "yes"
-              ? "हाँ"
-              : "नहीं"
-            : "कोई नहीं") +
-          "</p><p>बॉयलर: " +
-          (document.querySelector('input[name="boiler"]:checked')
-            ? document.querySelector('input[name="boiler"]:checked').value ===
-              "yes"
-              ? "हाँ"
-              : "नहीं"
-            : "कोई नहीं") +
-          "</p>";
+        // Radios for industry
+        ["flammableGas", "boiler", "acid", "chemical"].forEach((name) => {
+          const mainYes = document.getElementById(name + "Yes");
+          const mainNo = document.getElementById(name + "No");
+          const previewName =
+            "preview" + name.charAt(0).toUpperCase() + name.slice(1);
+          const previewYes = document.getElementById(previewName + "Yes");
+          const previewNo = document.getElementById(previewName + "No");
+          if (mainYes && previewYes) {
+            previewYes.checked = mainYes.checked;
+            if (mainNo && previewNo) previewNo.checked = mainNo.checked;
+          }
+        });
 
-        if (document.getElementById("boilerYes").checked) {
-          html +=
-            "<p>ईंधन: " + document.getElementById("boilerFuel").value + "</p>";
+        // Boiler fuel
+        const boilerYes = document.getElementById("boilerYes").checked;
+        const previewBoilerSection = document.getElementById(
+          "previewBoilerFuelSection"
+        );
+        if (boilerYes) {
+          previewBoilerSection.classList.remove("d-none");
+          document.getElementById("previewBoilerFuel").value =
+            document.getElementById("boilerFuel").value;
+        } else {
+          previewBoilerSection.classList.add("d-none");
         }
 
-        html +=
-          "<p>एसिड: " +
-          (document.querySelector('input[name="acid"]:checked')
-            ? document.querySelector('input[name="acid"]:checked').value ===
-              "yes"
-              ? "हाँ"
-              : "नहीं"
-            : "कोई नहीं") +
-          "</p><p>क्लोरीन/अमोनिया: " +
-          (document.querySelector('input[name="chemical"]:checked')
-            ? document.querySelector('input[name="chemical"]:checked').value ===
-              "yes"
-              ? "हाँ"
-              : "नहीं"
-            : "कोई नहीं") +
-          "</p>";
-
-        html +=
-          "<h3>चरण 5: घोषणा</h3><p>स्वीकृत: " +
-          (document.getElementById("declarationCheck").checked
-            ? "हाँ"
-            : "नहीं") +
-          "</p><p>नाम: " +
-          document.getElementById("declarantName").value +
-          "</p><p>तारीख: " +
-          document.getElementById("declarantDate").value +
-          "</p>";
-
-        preview.innerHTML = html;
+        // Step 5: Declaration
+        document.getElementById("previewDeclarationCheck").checked =
+          document.getElementById("declarationCheck").checked;
+        document.getElementById("previewDeclarantName").value =
+          document.getElementById("declarantName").value;
+        document.getElementById("previewDeclarantDate").value =
+          document.getElementById("declarantDate").value;
       }
 
       // Submit form
@@ -2289,3 +2230,4 @@
     </script>
   </body>
 </html>
+
